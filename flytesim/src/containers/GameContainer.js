@@ -1,6 +1,7 @@
 import React, {Fragment, useState, useEffect} from 'react';
 import StarterWordsList from '../components/StarterWordsList'
 import RhymeList from '../components/RhymeList'
+import styled from "styled-components";
 
 const GameContainer = () => {
 
@@ -62,10 +63,29 @@ const GameContainer = () => {
         <>
         <StarterWordsList starterWordsList={starterWordsList} starterWordClicked={starterWordClicked}/>
         {showRhymes ? <RhymeList rhymeWordsList={rhymeWordsList} rhymeWordClicked={rhymeWordClicked} showResult={showResult}/> : null}
+        <ResultSentence>
         {showResult ? <p>Your words are {starterWord.word} and {rhymeWord.word}! Your score is {rhymeWord.score}!</p> : null}
+        </ResultSentence>
         </>
     )
 
 }
 
 export default GameContainer;
+
+const ResultSentence = styled.div`
+    p{
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        background-color: gold;
+        background-opacity: 0.5;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        display: inline-block;
+        margin: 4px 2px;
+        border-radius: 8px;
+
+    }`
